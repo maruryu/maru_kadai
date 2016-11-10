@@ -59,6 +59,16 @@ comp comj(comp in)
 	return in;
 }
 
+void twid(comp *wnk,int N)
+{
+	double e=(2*M_PI/N);
+	int i;
+	for(i=0;i<N/2;i++){
+		wnk[i].re = cos(e*i);
+		wnk[i].im = sin(e*i);
+	}
+}
+
 int main()
 {
 	comp result;

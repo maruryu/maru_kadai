@@ -16,9 +16,9 @@ int main(void)
 	FILE *read,*write;
 	int i,j,k;
 	for(i=1;i<47;i++){
-		sprintf(inputname,"c%02d.txt",i);
+		sprintf(inputname,"C:/Users/TeamET/Desktop/maru_kadai/’mŽ¯HŠw‡U/‰Û‘è1-1/data/c%02d.txt",i);
 		read = fopen(inputname,"r");
-		sprintf(outputname,"mean%02d.txt",i);
+		sprintf(outputname,"C:/Users/TeamET/Desktop/maru_kadai/’mŽ¯HŠw‡U/‰Û‘è1-1/wdata/mean%02d.txt",i);
 		write = fopen(outputname,"w");
 		for(k=0;k<180;k++){
 			for(j=0;j<196;j++){

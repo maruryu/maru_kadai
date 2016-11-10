@@ -1,0 +1,226 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L UA9637 IC1
+U 1 1 57217D67
+P 4300 3950
+F 0 "IC1" H 4300 4050 50  0000 C CNN
+F 1 "NJM4580" H 4300 3850 50  0000 C CNN
+F 2 "" H 4300 3950 50  0000 C CNN
+F 3 "" H 4300 3950 50  0000 C CNN
+	1    4300 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L +12V #PWR?
+U 1 1 57217DB0
+P 4300 3650
+F 0 "#PWR?" H 4300 3500 50  0001 C CNN
+F 1 "+12V" H 4300 3790 50  0000 C CNN
+F 2 "" H 4300 3650 50  0000 C CNN
+F 3 "" H 4300 3650 50  0000 C CNN
+	1    4300 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L -12V #PWR?
+U 1 1 57217DC6
+P 4300 4250
+F 0 "#PWR?" H 4300 4100 50  0001 C CNN
+F 1 "-12V" H 4300 4390 50  0000 C CNN
+F 2 "" H 4300 4250 50  0000 C CNN
+F 3 "" H 4300 4250 50  0000 C CNN
+	1    4300 4250
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3550 3850 3800 3850
+Wire Wire Line
+	3800 4050 3700 4050
+Wire Wire Line
+	3700 3300 3700 3850
+Wire Wire Line
+	4800 3300 4800 3950
+Wire Wire Line
+	5150 3950 5250 3950
+Connection ~ 4800 3950
+Connection ~ 3700 3850
+$Comp
+L R 2kΩ
+U 1 1 57217E6B
+P 3400 3850
+F 0 "2kΩ" V 3480 3850 50  0000 C CNN
+F 1 "R1" V 3400 3850 50  0000 C CNN
+F 2 "" V 3330 3850 50  0000 C CNN
+F 3 "" H 3400 3850 50  0000 C CNN
+	1    3400 3850
+	0    1    1    0   
+$EndComp
+$Comp
+L R 24kΩ
+U 1 1 57217F55
+P 4250 3300
+F 0 "24kΩ" V 4330 3300 50  0000 C CNN
+F 1 "R2" V 4250 3300 50  0000 C CNN
+F 2 "" V 4180 3300 50  0000 C CNN
+F 3 "" H 4250 3300 50  0000 C CNN
+	1    4250 3300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3700 3300 4100 3300
+Wire Wire Line
+	4400 3300 4800 3300
+$Comp
+L +12V #PWR?
+U 1 1 5721822C
+P 3100 3850
+F 0 "#PWR?" H 3100 3700 50  0001 C CNN
+F 1 "+12V" H 3100 3990 50  0000 C CNN
+F 2 "" H 3100 3850 50  0000 C CNN
+F 3 "" H 3100 3850 50  0000 C CNN
+	1    3100 3850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3100 3850 3250 3850
+Wire Wire Line
+	3700 4050 3700 4150
+$Comp
+L GND #PWR?
+U 1 1 57218267
+P 3700 4150
+F 0 "#PWR?" H 3700 3900 50  0001 C CNN
+F 1 "GND" H 3700 4000 50  0000 C CNN
+F 2 "" H 3700 4150 50  0000 C CNN
+F 3 "" H 3700 4150 50  0000 C CNN
+	1    3700 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L UA9637 U?
+U 2 1 572182C0
+P 5750 4050
+F 0 "U?" H 5750 4150 50  0000 C CNN
+F 1 "UA9637" H 5750 3950 50  0000 C CNN
+F 2 "" H 5750 4050 50  0000 C CNN
+F 3 "" H 5750 4050 50  0000 C CNN
+	2    5750 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L +12V #PWR?
+U 1 1 572188A6
+P 5750 3750
+F 0 "#PWR?" H 5750 3600 50  0001 C CNN
+F 1 "+12V" H 5750 3890 50  0000 C CNN
+F 2 "" H 5750 3750 50  0000 C CNN
+F 3 "" H 5750 3750 50  0000 C CNN
+	1    5750 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L -12V #PWR?
+U 1 1 57218922
+P 5750 4350
+F 0 "#PWR?" H 5750 4200 50  0001 C CNN
+F 1 "-12V" H 5750 4490 50  0000 C CNN
+F 2 "" H 5750 4350 50  0000 C CNN
+F 3 "" H 5750 4350 50  0000 C CNN
+	1    5750 4350
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5250 4150 5150 4150
+$Comp
+L GND #PWR?
+U 1 1 57218A73
+P 5150 4250
+F 0 "#PWR?" H 5150 4000 50  0001 C CNN
+F 1 "GND" H 5150 4100 50  0000 C CNN
+F 2 "" H 5150 4250 50  0000 C CNN
+F 3 "" H 5150 4250 50  0000 C CNN
+	1    5150 4250
+	1    0    0    -1  
+$EndComp
+Text GLabel 6250 4050 2    60   Input ~ 0
+output
+Connection ~ 5250 3950
+Wire Wire Line
+	5150 4150 5150 4250
+Wire Wire Line
+	4800 3950 4850 3950
+$Comp
+L R 2kΩ
+U 1 1 57218E3D
+P 5000 3950
+F 0 "2kΩ" V 5080 3950 50  0000 C CNN
+F 1 "R3" V 5000 3950 50  0000 C CNN
+F 2 "" V 4930 3950 50  0000 C CNN
+F 3 "" H 5000 3950 50  0000 C CNN
+	1    5000 3950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5250 3950 5250 3450
+Wire Wire Line
+	5250 3450 5550 3450
+$Comp
+L R 20kΩ
+U 1 1 57218FC6
+P 5700 3450
+F 0 "20kΩ" V 5780 3450 50  0000 C CNN
+F 1 "R4" V 5700 3450 50  0000 C CNN
+F 2 "" V 5630 3450 50  0000 C CNN
+F 3 "" H 5700 3450 50  0000 C CNN
+	1    5700 3450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5850 3450 6000 3450
+Wire Wire Line
+	6000 3450 6000 4050
+Connection ~ 6000 4050
+$EndSCHEMATC

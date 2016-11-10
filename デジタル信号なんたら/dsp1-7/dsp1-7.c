@@ -11,97 +11,78 @@ struct xn{
 
 struct xn xn[500000]={0};
 struct xn Xk[500000]={0};
-struct xn in1;
-struct xn in2;
 
-struct xn complexAdd(struct xn in1,struct xn in2)
+typedef struct{
+	double re;
+	double im;
+}comp;
+
+typedef struct{
+	double re;
+	double im;
+}comp;
+
+
+comp compAdd(comp in1,comp in2)
 {
+	comp result;
 	
+	result.re = in1.re + in2.re;
+	result.im = in1.im + in2.im;
+	
+	return result;
 }
 
-double DbSpectrum(int i)
+comp compDec(comp in1,comp in2)
 {
-	double j=sqrt(pow(Xk[i].re,2)+pow(Xk[i].im,2));
-	return 20*log10(fabs(j));
-	//return j;
+	comp result;
+	
+	result.re = in1.re - in2.re;
+	result.im = in1.im - in2.im;
+	
+	return result;
 }
 
-double HzSpectrum(int i)
+comp compMulti(comp in1,comp in2)
 {
-	if( fabs(Xk[i].im) >0.00001 && fabs(Xk[i].re) >0.00001){
-		
-		double j=atan2(Xk[i].im,Xk[i].re);
-		//return j*180/M_PI;
-		return j;
-	}else{
-		return 0;
+	comp result;
+	
+	result.re = (in1.re*in2.re) - (in1.im*in2.im);
+	result.im = (in1.re*in2.im) + (in1.im*in2.re);
+	
+	return result;
+}
+
+comp compDiv(comp in1,comp in2)
+{
+	comp result;
+	double molecule = pow(in2.re,2) + pow(in2.im,2);
+
+	result.re = ((in1.re*in2.re) + (in1.im*in2.im))/molecule;
+	result.im = ((in1.im*in2.re) - (in1.re*in2.im))/molecule;
+	
+	return result;
+}
+
+comp comj(comp in)
+{
+	comp in;
+	
+	in.im = -in.im;
+	
+	return in;
+}
+
+void twid(comp *wnk,int N)
+{
+	double e=(2*M_PI/N);
+	int i;
+	for(i=0;i<N/2;i++){
+		wnk[i].re = cos(e*i);
+		wnk[i].im = sin(e*i);
 	}
 }
 
-void DFT_culc(int mode,int point)
-{
-	int i,j,a,b;
-	if(mode==1){
-		a=1;
-		b=1;
-	}else if(mode==2){
-		a=-1;
-		b=point;
-	}
-	for(i=0;i<point;i++){
-		for(j=0;j<point;j++){
-			Xk[j].re+=(xn[i].re*cos((2*M_PI*i*j)/point)+a*xn[i].im*sin((2*M_PI*i*j)/point))/b;
-			Xk[j].im+=(xn[i].im*cos((2*M_PI*i*j)/point)-a*xn[i].re*sin((2*M_PI*i*j)/point))/b;
-		}
-	}
-}
-
-
-void fileRead(char input[100],int mode)
-{
-	FILE *fp;
-	int i=0;
-	fp=fopen(input,"r");
-	if(mode==1){
-		while(fscanf(fp,"%lf",&xn[i].re)!=EOF)
-		{
-			xn[i].im=0;
-			i++;
-		}
-	}else if(mode==2){
-		while(fscanf(fp,"%lf  %lf",&xn[i].re,&xn[i].im)!=EOF)
-		{
-			i++;
-		}
-	}
-	fclose(fp);
-}
-
-void fileWrite(char output[100],int point,int mode,int type)
-{
-	FILE *fp;
-	int i=0;
-	fp=fopen(output,"w");
-	if(type==1){
-		for(i=0;i<point;i++){
-			fprintf(fp,"%lf  ",DbSpectrum(i));
-			fprintf(fp,"%lf\n",HzSpectrum(i));
-		}
-	}else if(mode==1){
-		for(i=0;i<point;i++){
-			fprintf(fp,"%lf  %lf\n",Xk[i].re,Xk[i].im);
-		}
-	}else if(mode==2){
-		for(i=0;i<point;i++){
-			fprintf(fp,"%lf\n",Xk[i].re);
-		}
-	}else{
-		for(i=0;i<point;i++){
-			fprintf(fp,"%lf\n",xn[i].re);
-		}
-	}
-	fclose(fp);
-}
 void Divided_case()
 {
 	int i,mode,point,type=0;

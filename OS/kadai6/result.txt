@@ -1,0 +1,24 @@
+
+preStartHos: start!
+checkButton: starting!
+B1 PUSHED
+B1 Released
+B2 PUSHED
+B2 Released
+B3 PUSHED
+B3 Released
+B4 PUSHED
+B4 Released
+B2 PUSHED
+B2 Released
+B1 PUSHED
+B1 Released
+B3 PUSHED
+B3 Released
+B4 PUSHED
+B4 Released
+
+
+
+
+

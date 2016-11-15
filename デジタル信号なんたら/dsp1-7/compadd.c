@@ -52,7 +52,6 @@ comp compDiv(comp in1,comp in2)
 
 comp comj(comp in)
 {
-	comp in;
 	
 	in.im = -in.im;
 	
@@ -71,11 +70,13 @@ void twid(comp *wnk,int N)
 
 int main()
 {
-	comp result;
+	comp result[8];
 	comp xn={1,2};
 	comp Xk={3,4};
-	result = compAdd(xn,Xk);
-	result = compDec(xn,Xk);
-	printf("%lf %lf\n",result.re,result.im);
+	twid(result,8);
+	int i;
+	for(i=0;i<8;i++){
+		printf("%lf %lf\n",result[i].re,result[i].im);
+	}
 	return 0;
 }

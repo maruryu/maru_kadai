@@ -14,7 +14,7 @@ struct xn{
 struct xn xn[100000]={0};
 struct xn Xk[100000]={0};
 
-int count=0;
+unsigned long int count=0;
 
 void Hamming_window(int point)
 {
@@ -45,7 +45,6 @@ void Blackman_window(int point)
 double DbSpectrum(int i)
 {
 	double j=sqrt(pow(Xk[i].re,2)+pow(Xk[i].im,2));
-	count+=4;
 	return 20*log10(fabs(j));
 	//return j;
 }
@@ -55,7 +54,6 @@ double HzSpectrum(int i)
 	if( fabs(Xk[i].im) >0.00001 && fabs(Xk[i].re) >0.00001){
 		
 		double j=atan2(Xk[i].im,Xk[i].re);
-		count+=2;
 		return j*180/M_PI;
 		//return j;
 	}else{
@@ -70,7 +68,7 @@ void DFT_culc(int mode,int point)
 		for(j=0;j<point;j++){
 			Xk[j].re+=(xn[i].re*cos((2*M_PI*i*j)/point)+a*xn[i].im*sin((2*M_PI*i*j)/point))/b;
 			Xk[j].im+=(xn[i].im*cos((2*M_PI*i*j)/point)-a*xn[i].re*sin((2*M_PI*i*j)/point))/b;
-			count+=24;
+			count++;
 		}
 	}
 }

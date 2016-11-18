@@ -41,6 +41,7 @@ void Blackman_window(int point)
 double DbSpectrum(int i)
 {
 	double j=sqrt(pow(Xk[i].re,2)+pow(Xk[i].im,2));
+	if(j==0) printf("%lf %lf\n",j,20*log10(fabs(j)));
 	return 20*log10(fabs(j));
 	//return j;
 }

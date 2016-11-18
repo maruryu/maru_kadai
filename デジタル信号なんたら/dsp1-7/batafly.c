@@ -141,9 +141,8 @@ void batCulc()
 double DbSpectrum(int i)
 {
 	double j=sqrt(pow(answer[i].re,2)+pow(answer[i].im,2));
-	count+=3;
+	count+=4;
 	return 20*log10(fabs(j));
-	count++;
 	//return j;
 }
 
@@ -187,12 +186,12 @@ void fileWrite(char output[100],int type)
 	fp=fopen(output,"w");
 	if(type==1){
 		for(i=0;i<N;i++){
-			fprintf(fp,"%lf  ",DbSpectrum(i));
+			fprintf(fp,"%lf,",DbSpectrum(i));
 			fprintf(fp,"%lf\n",HzSpectrum(i));
 		}
 	}else{
 		for(i=0;i<N;i++){
-			fprintf(fp,"%lf  %lf\n",answer[i].re,answer[i].im);
+			fprintf(fp,"%lf,%lf\n",answer[i].re,answer[i].im);
 		}
 	}
 	fclose(fp);
@@ -205,15 +204,13 @@ void Divided_case()
 	
 	char input[100]={'\n'},output[100]={'\n'};
 	
-	//printf("振幅スペクトル[dB]，位相スペクトル[deg]を出力→1\nFFT結果をそのまま出力→other\n");
-	//scanf("%d",&type);
 	printf("点数Nを入力してください．\n");
 	scanf("%d",&N);
 	printf("入力ファイル名を記入してください\n");
 	scanf("%100s",input);
 	printf("出力ファイル名を記入してください\n");
 	scanf("%100s",output);
-	printf("振幅スペクトル[dB]，位相スペクトル[deg]を出力→1\nDFT結果をそのまま出力→other\n");
+	printf("振幅スペクトル[dB]，位相スペクトル[deg]を出力→1\nFFT結果をそのまま出力→other\n");
 	scanf("%d",&type);
 	clock_t start, end;
 	count=0;
@@ -230,19 +227,6 @@ void Divided_case()
 	printf( "処理時間:%d[ms]\n", end - start );
 	printf( "計算回数:%d[回]\n", count );
 
-	/*}else if(mode==2){
-	
-		printf("点数Nを入力してください．\n");
-		scanf("%d",&point);
-		printf("入力ファイル名を記入してください\n");
-		scanf("%100s",input);
-		printf("出力ファイル名を記入してください\n");
-		scanf("%100s",output);
-		
-		fileRead(input,mode);
-		DFT_culc(mode,point);
-	}*/
-	//fileWrite(output,point,mode,type);
 }
 
 
